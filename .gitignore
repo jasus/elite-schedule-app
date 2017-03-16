@@ -3,6 +3,6 @@
 .editorconfig
 
 node_modules/
-www/build/
+www/
 platforms/
 plugins/
