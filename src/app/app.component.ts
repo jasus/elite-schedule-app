@@ -3,6 +3,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { MyTeamsPage, TournamentsPage } from '../pages/pages';
+import { EliteAPI } from '../services/services';
 
 @Component({
   templateUrl: 'app.html'
