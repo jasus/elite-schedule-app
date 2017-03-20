@@ -8,6 +8,7 @@ import { TeamDetailPage } from '../pages/team-detail/team-detail.page';
 import { GamePage } from '../pages/game/game.page';
 import {TeamHomePage} from "../pages/team-home/team-home.page";
 import {StandingsPage} from "../pages/standings/standings.page";
+import {EliteAPI} from "../services/elite-api.service";
 
 @NgModule({
   declarations: [
@@ -34,6 +35,9 @@ import {StandingsPage} from "../pages/standings/standings.page";
     TeamHomePage,
     StandingsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    EliteAPI
+  ]
 })
 export class AppModule {}
