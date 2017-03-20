@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import * as _ from 'lodash';
 
+import { GamePage } from '../pages';
 import { EliteAPI } from '../../services/services';
 
 @Component({
@@ -29,13 +30,19 @@ export class TeamDetailPage {
         let opponentName = isTeam1 ? g.team2 : g.team1;
         let scoreDisplay = this.getScoreDisplay(isTeam1, g.team1Score, g.team2Score);
         return {
-          gameId: g.id,
-          opponent: opponentName,
-          time: Date.parse(g.time),
+          id: g.id,
           location: g.location,
-          locationUrl: g.locationUrl,
+          locationId: g.locationId,
+          team1: g.team1,
+          team1Id: g.team1Id,
+          team1Score: g.team1Score,
+          team2: g.team2,
+          team2Id: g.team2Id,
+          team2Score: g.team2Score,
+          time: Date.parse(g.time),
           scoreDisplay: scoreDisplay,
-          homeAway: (isTeam1 ? "vs." : "at")
+          homeAway: (isTeam1 ? "vs." : "at"),
+          opponentName: opponentName
         };
       })
       .value();
@@ -52,6 +59,11 @@ export class TeamDetailPage {
     else {
       return "";
     }
+  }
+
+  gameClicked($event, game){
+    let sourceGame = this.tournamentData.games.find(g => g.id === game.id);
+    this.nav.parent.parent.push(GamePage, sourceGame);
   }
 
 
