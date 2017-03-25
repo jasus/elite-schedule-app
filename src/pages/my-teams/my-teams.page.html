@@ -10,7 +10,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
   <ion-list>
     <ion-list-header>Followed Teams</ion-list-header>
@@ -22,9 +22,10 @@
 
   </ion-list>
 
-  <p>To follow more teams, select a tournament,
-    then you can follow teams from their team page.</p>
+  <div padding>
+    <p>To follow more teams, select a tournament,
+      then you can follow teams from their team page.</p>
 
-  <button ion-button (click)="goToTournaments()">Find a Tornament</button>
-
+    <button ion-button (click)="goToTournaments()">Find a Tornament</button>
+  </div>
 </ion-content>
