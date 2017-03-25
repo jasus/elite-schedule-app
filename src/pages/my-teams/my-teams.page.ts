@@ -5,7 +5,8 @@ import { TeamHomePage, TournamentsPage } from '../pages';
 import { EliteAPI } from '../../services/services';
 
 @Component({
-  templateUrl: 'my-teams.page.html'
+  templateUrl: 'my-teams.page.html',
+  selector: 'my-teams.page.scss'
 })
 export class MyTeamsPage {
 
@@ -21,6 +22,7 @@ export class MyTeamsPage {
           tournamentName: 'Holiday Hoops Challenge'
       }
   ];
+
   constructor(
     private loadingController: LoadingController,
     private nav: NavController,
