@@ -7,19 +7,23 @@ import { GamePage } from '../pages';
 import { EliteAPI } from '../../services/services';
 
 @Component({
-  templateUrl: 'team-detail.page.html'
+  templateUrl: 'team-detail.page.html',
+  selector: 'team-detail.page.html'
 })
 export class TeamDetailPage {
   games: any[];
   team: any;
+  teamStanding: any;
   private tournamentData: any;
 
   constructor(private nav: NavController,
               private navParams: NavParams,
               private eliteAPI: EliteAPI) {
+
+    this.init();
   }
 
-  ionViewDidLoad(){
+  init(){
     this.team = this.navParams.data;
     this.tournamentData = this.eliteAPI.getCurrentTournament();
 
@@ -46,6 +50,8 @@ export class TeamDetailPage {
         };
       })
       .value();
+
+      this.teamStanding = _.find(this.tournamentData.standings, { 'teamId': this.team.id });
   }
 
 
